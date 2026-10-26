@@ -1,1 +1,0 @@
-# hamsu_ter
