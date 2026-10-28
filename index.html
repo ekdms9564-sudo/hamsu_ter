@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#111112">
-<title>STILLROOM — Archive</title>
+<title>AFTERIMAGE — Archive</title>
 <style>
 :root{--bg:#111112;--surface:#18191a;--text:#ededeb;--muted:#999a9b;--line:#343536;--silver:#c8cacc;--serif:Georgia,"Times New Roman",serif;--sans:Arial,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.7 var(--sans)}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{color:inherit;cursor:pointer}img{display:block;width:100%}.wrap{width:min(1120px,calc(100% - 48px));margin:auto}
 header{position:sticky;top:0;z-index:5;background:rgba(17,17,18,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .header-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:26px/1 var(--serif);letter-spacing:-.05em}.brand small{font:9px var(--sans);letter-spacing:.15em;color:var(--muted);margin-left:10px}.nav{display:flex;gap:24px;color:var(--muted);font-size:11px;letter-spacing:.08em}.nav a:hover{color:var(--text)}
-main{padding-bottom:60px}.intro{padding:78px 0 58px;border-bottom:1px solid var(--line)}.eyebrow{font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end;margin-top:18px}h1{font:clamp(58px,9vw,112px)/.9 var(--serif);font-weight:400;letter-spacing:-.07em;margin:0}h1 span{color:var(--silver);font-style:italic}.intro-copy{max-width:360px;color:#c1c1bf;font-size:13px;line-height:2;margin:0 0 4px}
+main{padding-bottom:60px}.intro{padding:34px 0 56px;border-bottom:1px solid var(--line)}.eyebrow{font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end;margin-top:18px}h1{font:clamp(58px,9vw,112px)/.9 var(--serif);font-weight:400;letter-spacing:-.07em;margin:0}h1 span{color:var(--silver);font-style:italic}.intro-copy{max-width:360px;color:#c1c1bf;font-size:13px;line-height:2;margin:0 0 4px}
 .section{padding:56px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}.section-label{font-size:10px;letter-spacing:.15em;color:var(--muted);margin-bottom:8px}h2{font:38px/1.1 var(--serif);font-weight:400;letter-spacing:-.04em;margin:0}.section-desc{color:var(--muted);font-size:11px;margin:0}
 .profile{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:25px 0 0;border-top:1px solid var(--line)}.profile-mark{font:13px var(--serif);color:var(--muted)}.profile h3{font:25px/1.2 var(--serif);font-weight:400;margin:0 0 12px}.profile p{max-width:680px;color:#c7c7c4;margin:0 0 12px;font-size:12px;line-height:2}.profile-details{display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}.profile-details strong{font-weight:400;color:var(--text);margin-right:7px}
 .tools{display:flex;justify-content:flex-end;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}.search{width:220px;max-width:100%;background:transparent;border:1px solid var(--line);padding:9px 11px;color:var(--text);outline:none;font-size:11px}.search:focus{border-color:var(--silver)}
@@ -18,38 +18,174 @@ main{padding-bottom:60px}.intro{padding:78px 0 58px;border-bottom:1px solid var(
 footer{padding:23px 0 30px;color:var(--muted);font-size:9px;letter-spacing:.1em}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
 .modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.82);backdrop-filter:blur(7px)}.modal.open{display:flex}.modal-box{position:relative;width:min(900px,100%);max-height:92vh;overflow:auto;background:#151617;border:1px solid #454647}.modal-close{position:sticky;top:0;float:right;z-index:2;width:40px;height:40px;margin-bottom:-40px;border:0;background:rgba(12,12,12,.9);font-size:22px}.modal-layout{display:grid;grid-template-columns:1fr 1fr}.modal-preview{position:relative;background:#202122;min-height:350px;padding:0;border:0;width:100%;cursor:zoom-in}.modal-preview img{height:100%;min-height:350px;max-height:70vh;object-fit:contain}.zoom-hint{position:absolute;right:10px;bottom:10px;background:rgba(17,17,18,.86);padding:3px 8px;font-size:9px;letter-spacing:.1em;color:var(--silver);pointer-events:none}.modal-content{padding:30px;min-width:0}.modal-meta{font-size:9px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}.modal-title{font:35px/1.15 var(--serif);font-weight:400;margin:10px 0 8px}.modal-description{font-size:11px;color:#b9b9b6;margin:0 0 24px;line-height:1.8}.prompt-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}.prompt-head label{font-size:10px;letter-spacing:.13em;color:var(--silver)}.copy-btn{background:transparent;border:1px solid #77797b;padding:7px 10px;font-size:10px;white-space:nowrap}.copy-btn:hover{background:var(--silver);color:#111;border-color:var(--silver)}.prompt{width:100%;min-height:190px;resize:vertical;background:#0f1011;color:#d6d6d3;border:1px solid var(--line);padding:13px;font:11px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;outline:none}.prompt:focus{border-color:#858789}.copy-status{min-height:18px;margin-top:7px;color:var(--muted);font-size:10px}.modal-tip{font-size:9px;color:var(--muted);margin-top:15px}
 .lightbox{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.94);cursor:zoom-out}.lightbox.open{display:flex}.lightbox img{width:auto;max-width:100%;max-height:100%;object-fit:contain}.lightbox-close{position:fixed;top:12px;right:12px;width:40px;height:40px;border:0;background:rgba(12,12,12,.9);font-size:22px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* 포스터 */
+.poster{position:relative;isolation:isolate;overflow:hidden;background:var(--bg);border:1px solid var(--line);height:min(68vw,640px);min-height:440px;cursor:none;user-select:none;-webkit-user-select:none}
+.p-layer{position:absolute;inset:0;pointer-events:none;will-change:transform}
+.p-circle{position:absolute;right:7%;top:9%;width:min(40vw,400px);aspect-ratio:1;border:1px solid var(--silver);border-radius:50%}
+.p-dot{position:absolute;right:calc(7% + min(40vw,400px)*.62);top:calc(9% + min(40vw,400px)*.66);width:min(7vw,64px);aspect-ratio:1;background:var(--text);border-radius:50%}
+.p-vline{position:absolute;top:0;bottom:0;left:62%;width:1px;background:var(--line)}
+.p-hline{position:absolute;left:0;right:0;top:58%;height:1px;background:var(--line)}
+.p-big{position:absolute;font-family:var(--serif);font-weight:400;line-height:.78;letter-spacing:-.075em;white-space:nowrap}
+.p-still{left:-1.5%;top:13%;font-size:clamp(110px,24vw,300px);color:var(--text)}
+.p-room{right:3%;bottom:7%;font-size:clamp(90px,19vw,240px);font-style:italic;color:var(--silver)}
+.p-tl,.p-tr,.p-copy,.p-bl,.p-br,.p-side{position:absolute;font-size:9px;line-height:1.7;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.p-tl{top:16px;left:18px;color:var(--text)}
+.p-tr{top:16px;right:18px}
+.p-copy{left:calc(62% + 16px);top:calc(58% + 14px);text-transform:none;letter-spacing:.04em;font:italic 13px/1.6 var(--serif);color:#c1c1bf}
+.p-side{right:6px;top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;white-space:nowrap;font-size:8px;opacity:.7}
+.p-bl{left:18px;bottom:16px;color:var(--text);letter-spacing:.1em;font-size:11px}
+.p-bl span{display:block;font-size:8px;color:var(--muted);letter-spacing:.16em}
+.p-br{right:18px;bottom:16px}
+.p-bars{position:absolute;left:calc(62% + 16px);bottom:18px;display:flex;gap:2px;height:22px;align-items:stretch}
+.p-bars i{display:block;background:var(--muted)}
+.p-bars i:nth-child(odd){width:1px}.p-bars i:nth-child(even){width:3px}.p-bars i:nth-child(3n){width:2px}
+.p-reg{position:absolute;font:300 14px/1 var(--sans);color:var(--muted)}
+.r1{top:44px;left:14px}.r2{top:44px;right:14px}.r3{bottom:44px;left:14px}.r4{bottom:44px;right:14px}
+.p-lens{position:absolute;left:0;top:0;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:5;will-change:transform;transition:width .3s,height .3s,margin .3s}
+.poster.press .p-lens{width:230px;height:230px;margin:-115px 0 0 -115px}
+@media(max-width:760px){.poster{height:120vw;min-height:420px;max-height:640px}.p-still{top:16%;font-size:31vw}.p-room{font-size:25vw;bottom:9%}.p-circle{width:58vw;right:-8%;top:30%}.p-dot{right:calc(-8% + 58vw*.62);top:calc(30% + 58vw*.66);width:11vw}.p-vline{left:70%}.p-hline{top:60%}.p-copy{left:18px;top:calc(60% + 12px);font-size:11px}.p-bars{display:none}.p-lens{width:110px;height:110px;margin:-55px 0 0 -55px}.p-side{display:none}}
+.sparkle{position:fixed;z-index:60;pointer-events:none;color:var(--silver);font-size:11px;line-height:1;text-shadow:0 0 6px rgba(255,255,255,.7);animation:sparkleFade .9s ease-out forwards}
+@keyframes sparkleFade{0%{opacity:.95;transform:translate(0,0) scale(1) rotate(0)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2) rotate(90deg)}}
 @media(max-width:760px){.wrap{width:calc(100% - 32px)}.header-inner{height:62px}.brand{font-size:23px}.brand small{display:none}.nav{gap:15px;font-size:10px}.intro{padding:54px 0 40px}.intro-grid{grid-template-columns:1fr;gap:22px}.intro-copy{max-width:480px}.section{padding:42px 0}.profile{grid-template-columns:90px 1fr;gap:18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.modal-layout{grid-template-columns:1fr}.modal-preview,.modal-preview img{min-height:0;max-height:40vh}.modal-content{padding:22px}.prompt{min-height:150px}}
 @media(max-width:480px){.wrap{width:calc(100% - 24px)}.nav{gap:11px;font-size:9px}.intro{padding-top:42px}h1{font-size:clamp(54px,15vw,76px)}.section-head{align-items:start;flex-direction:column;gap:8px}h2{font-size:33px}.profile{grid-template-columns:1fr;gap:10px}.profile-mark{font-size:10px}.profile h3{font-size:23px}.profile-details{gap:10px 16px}.tools{align-items:stretch}.search{width:100%}.grid{grid-template-columns:1fr;gap:10px}.item{display:grid;grid-template-columns:42% 1fr}.thumb img{height:100%;aspect-ratio:auto;min-height:145px}.item-info{display:flex;flex-direction:column;justify-content:center;padding:12px}.item-title{font-size:21px}.modal{padding:10px}.modal-title{font-size:29px}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* 페이지 전환 */
+.brand,.nav button{background:none;border:0;padding:0;cursor:pointer;color:inherit}
+.brand{font:26px/1 var(--serif);letter-spacing:-.05em;color:var(--text)}
+.nav button{font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.nav button:hover,.nav button.on{color:var(--text)}
+.page{display:none}
+.page.is-active{display:block;animation:pageIn .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.page-profile,.page-archive{padding:56px 0 130px;min-height:calc(100svh - 68px)}
+body.on-entry .site-header,body.on-entry .site-footer,body.on-entry .pager{display:none}
+.page-entry{padding:18px;height:100svh}
+.page-entry .poster{height:100%;min-height:0;max-height:none;cursor:none}
+.page-entry .poster:focus-visible{outline:1px solid var(--silver);outline-offset:4px}
+.p-enter{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);font-size:10px;letter-spacing:.3em;color:var(--text);animation:blink 2.2s ease-in-out infinite}
+.p-enter span{display:inline-block;margin-left:6px;transition:transform .3s}
+.poster:hover .p-enter span{transform:translateX(5px)}
+@keyframes blink{50%{opacity:.35}}
+.page-entry.leaving{animation:leave .5s ease forwards}
+@keyframes leave{to{opacity:0;transform:scale(1.03)}}
+
+/* 프로필 창 */
+.pwin{max-width:860px;border:1px solid #58595a;background:var(--surface);box-shadow:10px 10px 0 #0a0a0b}
+.pwin-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #58595a;font-size:10px;letter-spacing:.14em;color:var(--muted)}
+.pwin-dots{display:flex;gap:6px}.pwin-dots i{width:9px;height:9px;border:1px solid var(--muted);border-radius:50%}
+.pwin-dots i:last-child{background:var(--silver);border-color:var(--silver)}
+.pwin-body{display:grid;grid-template-columns:240px 1fr;gap:0}
+.pwin{margin:0 auto}
+.page-profile .section-head{justify-content:center;text-align:center}
+.pwin-mark{position:relative;min-height:240px;border-right:1px solid var(--line);background:#141516;overflow:hidden}
+.pwin-mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.pwin-empty{position:absolute;inset:0;display:none;place-items:center;text-align:center;font-size:9px;letter-spacing:.2em;color:var(--muted);background:repeating-linear-gradient(45deg,transparent 0 10px,rgba(255,255,255,.025) 10px 11px)}
+.pwin-mark.no-img .pwin-empty{display:grid}.pwin-mark.no-img img{display:none}
+.pwin-mark small{position:absolute;left:12px;bottom:10px;z-index:2;font-size:8px;letter-spacing:.16em;color:var(--text);background:rgba(17,17,18,.75);padding:2px 6px}
+.pwin-info{padding:24px 28px 22px;min-width:0}
+.pwin-tag{display:inline-block;border:1px solid var(--silver);padding:1px 8px;font-size:9px;letter-spacing:.12em;color:var(--silver)}
+.pwin-info h3{font:400 38px/1.15 var(--serif);letter-spacing:-.03em;margin:10px 0 16px}
+.pwin-rows{margin:0;border-top:1px solid var(--line)}
+.pwin-rows div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+.pwin-rows dt{font-size:9px;letter-spacing:.15em;color:var(--muted);padding-top:2px}
+.pwin-rows dd{margin:0;color:#d6d6d3}
+.pwin-rows a{color:var(--text);border-bottom:1px solid var(--muted)}
+.pwin-rows a:hover{border-color:var(--text)}
+.pwin-note{margin:14px 0 0;font:italic 13px/1.7 var(--serif);color:#b9b9b6}
+.pwin-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:9px 14px;border-top:1px solid #58595a;font-size:9px;letter-spacing:.14em;color:var(--muted)}
+.pwin-foot b{font-weight:400;color:var(--silver)}
+
+/* 페이지 화살표 */
+.pager{position:fixed;left:0;right:0;bottom:0;z-index:8;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:linear-gradient(0deg,rgba(17,17,18,.96) 60%,rgba(17,17,18,0));pointer-events:none}
+.pager>*{pointer-events:auto}
+.pg-btn{display:flex;align-items:center;gap:12px;background:none;border:0;padding:6px 0;color:var(--muted);font-size:10px;letter-spacing:.18em}
+.pg-arrow{display:grid;place-items:center;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;font:20px/1 var(--serif);color:var(--text);transition:background .2s,color .2s,transform .2s}
+.pg-btn:hover{color:var(--text)}
+.pg-btn:hover .pg-arrow{background:var(--text);color:#111}
+.pg-prev:hover .pg-arrow{transform:translateX(-3px)}.pg-next:hover .pg-arrow{transform:translateX(3px)}
+.pg-btn[disabled]{visibility:hidden}
+.pg-count{font:13px var(--serif);color:var(--muted);letter-spacing:.1em}
+.pg-count b{font-weight:400;color:var(--text)}
+@media(max-width:760px){
+  .page-profile,.page-archive{padding:36px 0 110px}
+  .page-entry{padding:10px}
+  .pwin-body{grid-template-columns:1fr}
+  .page-profile .section-head{align-items:center!important}
+  .pwin-mark{min-height:0;aspect-ratio:4/3;border-right:0;border-bottom:1px solid var(--line)}
+  .pwin-info{padding:18px}.pwin-info h3{font-size:30px}
+  .pwin-rows div{grid-template-columns:78px 1fr}
+  .p-enter{left:18px;bottom:auto;top:calc(60% + 84px);transform:none}
+  .pager{padding:10px 14px}.pg-label{display:none}.pg-arrow{width:42px;height:42px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* 은은한 배경 */
+html{background:var(--bg)}body{background:transparent}
+.bg-fx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bg-glow{position:absolute;left:0;top:0;width:70vmax;height:70vmax;margin:-35vmax 0 0 -35vmax;border-radius:50%;background:radial-gradient(circle,rgba(220,222,224,.075) 0%,rgba(220,222,224,.025) 35%,transparent 62%);will-change:transform}
+.bg-ring{position:absolute;left:0;top:0;width:44vmax;height:44vmax;margin:-22vmax 0 0 -22vmax;border-radius:50%;border:1px solid rgba(255,255,255,.035);will-change:transform}
+.bg-word{position:absolute;bottom:-5vw;left:0;font:italic 400 26vw/1 var(--serif);letter-spacing:-.06em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(237,237,235,.055);animation:wordDrift 70s linear infinite}
+@keyframes wordDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.bg-lines{position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(50% - .5px),rgba(255,255,255,.03) 50%,transparent calc(50% + .5px)),linear-gradient(0deg,transparent calc(62% - .5px),rgba(255,255,255,.025) 62%,transparent calc(62% + .5px))}
+.bg-grain{position:fixed;inset:-50%;z-index:70;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}17%{transform:translate(-3%,2%)}33%{transform:translate(2%,-4%)}50%{transform:translate(-4%,-1%)}67%{transform:translate(3%,3%)}83%{transform:translate(-1%,4%)}100%{transform:translate(0,0)}}
+body.on-entry .bg-word,body.on-entry .bg-lines{display:none}
+@media(prefers-reduced-motion:reduce){.bg-grain{animation:none}}
 </style>
 </head>
 <body>
-<header><div class="wrap header-inner">
-  <a class="brand" href="#top">STILLROOM <small>PERSONAL ARCHIVE</small></a>
-  <nav class="nav" aria-label="메뉴"><a href="#profile">PROFILE</a><a href="#archive">ARCHIVE</a></nav>
+<div class="bg-fx" aria-hidden="true"><div class="bg-lines"></div><div class="bg-word">image. image. image. image. image. image.</div><div class="bg-glow" id="bgGlow"></div><div class="bg-ring" id="bgRing"></div></div>
+<div class="bg-grain" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner">
+  <button class="brand" type="button" data-go="0">AFTERIMAGE <small>PERSONAL ARCHIVE</small></button>
+  <nav class="nav" aria-label="메뉴"><button type="button" data-go="1">PROFILE</button><button type="button" data-go="2">ARCHIVE</button></nav>
 </div></header>
 <main id="top">
-  <section class="intro"><div class="wrap">
-    <div class="eyebrow">PERSONAL ARCHIVE / VOL. 01</div>
-    <div class="intro-grid">
-      <h1>Collecting<br><span>fragments.</span></h1>
-      <p class="intro-copy"></p>
+  <section class="page page-entry" id="page-0" data-name="entry">
+    <h1 class="sr-only">AFTERIMAGE — Personal Archive</h1>
+    <div class="poster" id="poster" role="button" tabindex="0" aria-label="입장하기">
+      <div class="p-layer" data-depth="-0.6"><div class="p-circle"></div></div>
+      <div class="p-layer" data-depth="0.4"><div class="p-dot"></div></div>
+      <div class="p-vline"></div><div class="p-hline"></div>
+      <div class="p-layer" data-depth="0.25"><div class="p-big p-still">AFTER</div></div>
+      <div class="p-layer" data-depth="-0.35"><div class="p-big p-room">image.</div></div>
+      <div class="p-tl">PERSONAL ARCHIVE<br>VOL. 01</div>
+      <div class="p-tr">N°01 — <span id="posterYear"></span></div>
+      <div class="p-copy">What lingers after —<br>characters &amp; prompts<br>by 터스햄</div>
+      <div class="p-side">CHARACTER ARCHIVE ——— AFTERIMAGE</div>
+      <div class="p-bl">터스햄<br><span>블룸 · 팅글 · 위프</span></div>
+      <div class="p-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="p-br">AFTERIMAGE ©</div><div class="p-enter">CLICK TO ENTER <span>→</span></div>
+      <span class="p-reg r1">+</span><span class="p-reg r2">+</span><span class="p-reg r3">+</span><span class="p-reg r4">+</span>
+      <div class="p-lens" id="lens"></div>
     </div>
-  </div></section>
+  </section>
 
-  <section class="section" id="profile"><div class="wrap">
+  <section class="page page-profile" id="page-1" data-name="profile"><div class="wrap">
     <div class="section-head"><div><div class="section-label">01 / PROFILE</div><h2>About me</h2></div></div>
-    <div class="profile">
-      <div class="profile-mark">INTRODUCTION</div>
-      <div>
-        <h3>터스햄 @hamsu_ter</h3>
-        <p>성인 / 프롬, 짤뽑, 제작 위주 / 블룸, 팅글, 위프 활동중 / 궁금한점이나 문제가 있다면 트위터 디엠으로 연락 주세요! </p>
-        <div class="profile-details"><span><strong>HATE</strong> 미성년자 · 저격트 · 우울트</span><span><strong>LINK</strong> <a href="https://x.com/hamsu_ter" target="_blank" rel="noopener">X / SNS ↗</a></span></div>
+    <div class="pwin">
+      <div class="pwin-bar"><span>PROFILE — 터스햄.txt</span><span class="pwin-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+      <div class="pwin-body">
+        <!-- 프로필 이미지: 아래 src="" 따옴표 안에 이미지 주소를 넣으세요 -->
+        <div class="pwin-mark"><img id="profileImg" src="" alt="터스햄 프로필 이미지"><div class="pwin-empty">PROFILE<br>IMAGE</div><small>NO. 00 — CURATOR</small></div>
+        <div class="pwin-info">
+          <div class="pwin-tag">성인</div>
+          <h3>터스햄</h3>
+          <dl class="pwin-rows">
+            <div><dt>ACTIVITY</dt><dd>프롬, 짤뽑, 제작 위주</dd></div>
+            <div><dt>PLATFORM</dt><dd>블룸 · 팅글 · 위프 활동중</dd></div>
+            <div><dt>HATE</dt><dd>미성년자 · 저격트 · 우울트</dd></div>
+            <div><dt>CONTACT</dt><dd><a href="https://x.com/hamsu_ter" target="_blank" rel="noopener">X @hamsu_ter ↗</a></dd></div>
+          </dl>
+          <p class="pwin-note">궁금한점이나 문제가 있다면 트위터 디엠으로 연락 주세요!</p>
+        </div>
       </div>
+      <div class="pwin-foot"><span>LAST UPDATED <b id="updated"></b></span><span>AFTERIMAGE / PERSONAL ARCHIVE</span></div>
     </div>
   </div></section>
 
-  <section class="section" id="archive"><div class="wrap">
+  <section class="page page-archive" id="page-2" data-name="archive"><div class="wrap">
     <div class="section-head"><div><div class="section-label">02 / CHARACTER</div><h2>Archive</h2></div><p class="section-desc"></p></div>
     <div class="tools">
       <input class="search" id="search" type="search" placeholder="캐릭터 검색..." aria-label="캐릭터 검색">
@@ -58,7 +194,7 @@ footer{padding:23px 0 30px;color:var(--muted);font-size:9px;letter-spacing:.1em}
       <!-- 캐릭터 카드: 아래 article 하나를 통째로 복사해서 제목, 이미지, 설명, 프롬프트만 바꿔 추가하세요. 번호는 자동으로 매겨져요. -->
       <article class="item" data-search="로넌 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="로넌 상세 보기"
-          data-title="로넌" data-category="CHARACTER"
+          data-title="Ash" data-category="CHARACTER"
           data-description="《로넌 피츠제럴드 / Ronan Fitzgerald》男 · 28age · 182cm"
           data-image="https://i.ibb.co/9HDDQLXD/516607488244553.png"
           data-prompt="*감은 눈을 원하면 마지막 black eyes를 지워주세요* 1boy, solo, male focus, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.4::red hair::, 1.4::straight hair::, 1.2::sleek hair::, 1.3::smooth hair::, 1.1::flat hair::, neat hair, 1.3::short hair::, 1.4::hair reaching the neck::, 1.3::hair above the shoulders::, 1.2::bangs::, 1.2::bangs at eye level::, 1.2::male hairstyle::, hair between eyes, hair over ears, 1.5::smiling closed eyes::, 1.5::happy closed eyes::, 1.4::crescent eyes::, 1.4::upturned closed eyes::, 1.3::arched eyelids::, 1.3::smiling eyelids::, 1.3::sharp upturned eyes::, 1.2::snake-like eyes::, no highlights, 0.9::cat mouth::, smile, black eyes">
@@ -68,7 +204,7 @@ footer{padding:23px 0 30px;color:var(--muted);font-size:9px;letter-spacing:.1em}
       </article>
       <article class="item" data-search="히가 진 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="히가 진 상세 보기"
-          data-title="히가 진" data-category="CHARACTER"
+          data-title="Morrow" data-category="CHARACTER"
           data-description="《히가 진 / 比嘉 迅》男 · 32age · 188cm"
           data-image="https://i.ibb.co/DHGMV08k/983040082450120.png"
           data-prompt="1boy, solo, male focus, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.3::tan skin::, mature male, brown eyes, 1.3::half-closed eyes::, no eyebrows, 1.2::decadent::, expressionless, 1.3::dark blue hair::, 1.4::long hair::, 1.3::straight hair::, 1.3::no bangs::, 1.5::hair fully tucked under bandana::, 1.4::hair contained under bandana::, 1.4::no hair on forehead::, 1.3::clear forehead under bandana::, 1.3::hair only emerging from behind bandana::, few loose strands behind head, 1.3::mostly loose hair::, 1.3::few thin braids::, 1.5::black bandana::, 1.5::bandana covering head::, 1.4::bandana covering forehead::, 1.4::bandana covering eyebrows::, low bandana, 1.4::bandana knot::, 1.3::bandana tails::, plain bandana, 1.5::hard shadow::, 1.3::shadow under bandana::, 1.5::tribal tattoo::, 1.4::blackwork tattoo::, 1.3::bold black tattoo::, 1.3::neck tattoo::, 1.3::chest tattoo::, 1.4::full sleeve tattoo::, both arms tattooed">
@@ -78,7 +214,7 @@ footer{padding:23px 0 30px;color:var(--muted);font-size:9px;letter-spacing:.1em}
       </article>
       <article class="item" data-search="벡 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="벡 상세 보기"
-          data-title="벡" data-category="CHARACTER"
+          data-title="Noir" data-category="CHARACTER"
           data-description="《벡》男 · 26age · 185cm"
           data-image="https://i.ibb.co/Fq0MkNj1/703885559150233-1.png"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.3::medium warm skin tone::, 1.3::muted olive green hair::, 1.4::slightly grown-out buzz cut::, 1.3::short textured hair::, 1.3::black inner hair::,  1.6::bright vivid *yellow* sclera::, 1.5::black irises::, black pupils, half-closed eyes, narrow eyes, sharp eyes, mature male, sharp jawline, thin lips, 1.4::mischievous grin::, sly expression, delinquent-like expression, playful dangerous smile, 1.3::shark-like teeth::,  silver left eyebrow piercing, silver bridge piercing, multiple ear piercings, silver rings, 1.4::gill slits on both sides of neck::, 1.4::visible lateral neck gills::, shark-like gills, 1.3::multiple gill slits::, 1.2::scattered scars on body::, 1.3::scarred skin::, 1.4::long flat moray eel tail::, 1.4::laterally flattened tail::, 1.3::olive green tail::, 1.3::dark irregular mottled markings on tail::, 1.5::visible scars across tail::">
@@ -88,7 +224,7 @@ footer{padding:23px 0 30px;color:var(--muted);font-size:9px;letter-spacing:.1em}
       </article>
       <article class="item" data-search="금휘 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="금휘 상세 보기"
-          data-title="금휘" data-category="CHARACTER"
+          data-title="Noir" data-category="CHARACTER"
           data-description="《금휘 / 金輝》男 · ???age · 203cm"
           data-image="https://i.ibb.co/VY7RBKTN/817612197960704.png"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1man, solo, 1.3::eastern dragon boy::, 1.3::golden antler-like dragon horns, branching horns::, 1.3::long golden dragon tail, tail with flowing mane::, 1.2::golden scales on cheeks, neck and hands::, 1.2::slit pupils::, golden eyes, sharp eyes, 1.1::claws, clawed fingers::, sharp teeth, 1.4::warm golden blonde hair, honey blonde::, 1.3::very long straight hair, hair reaching below hips, loose hair::, 1.2::loosely swept-back bangs, stray strands over forehead::, 1.2::face-framing sidelocks::, slightly messy hair ends, tall, muscular,
@@ -100,7 +236,7 @@ confident expression, smirk, looking at viewer">
       </article>
       <article class="item" data-search="체이스 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="체이스 상세 보기"
-          data-title="체이스" data-category="CHARACTER"
+          data-title="Noir" data-category="CHARACTER"
           data-description="《체이스》男 · 30age · 186cm"
           data-image="https://i.ibb.co/208zMKgt/827895086471098.png"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.5::slicked-back black hair::, 1.5::black and pure white two-tone hair::, 1.4::white underlayer::, 1.4::layered wolf cut::, long nape, 1.5::narrow upturned monolid eyes::, snake-like eyes, 1.4::black irises, red pupils::, sly gaze, sharp features, black outfit, 1.3::long black pangolin tail::, 1.7::wide flat tail::, 1.5::thin flattened tail::, 1.4::flat silhouette::, 1.3::long tail lying flat on the ground::, 1.4::scales on tail only::, 1.4::overlapping black tail scales::, glossy obsidian-black tail scales, subtle gunmetal highlights, clearly defined scale patterns, tapered tail tip">
@@ -110,7 +246,7 @@ confident expression, smirk, looking at viewer">
       </article>
       <article class="item" data-search="루 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="루 상세 보기"
-          data-title="루" data-category="CHARACTER"
+          data-title="Noir" data-category="CHARACTER"
           data-description="《루 / Rue》男 · ???age · 180~185cm"
           data-image="https://i.ibb.co/ZRV40Q3q/879421982919665.png"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1man, solo, slime boy, monster boy, 1.4::translucent body, gelatinous skin::, 1.3::light blue body::, 1.2::glossy wet skin::, 1.3::liquid hair, dripping hair::, 1.2::messy short hair, bangs between eyes, hair partially covering eyes::, 1.5::glowing small red core inside chest, suspended inside translucent body::, 1.1::red glow diffused through jelly::, 1.3::red eyes::, 1.2::calm eyes, half-lidded eyes, slightly droopy eyes::, expressionless, dripping fingers, tall, slender">
@@ -120,7 +256,7 @@ confident expression, smirk, looking at viewer">
       </article>
       <article class="item" data-search="모르그 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="모르그 상세 보기"
-          data-title="모르그" data-category="CHARACTER"
+          data-title="Noir" data-category="CHARACTER"
           data-description="《모르그 / Morgue》男 · 28age · 190cm"
           data-image="https://i.ibb.co/4R2MZrCR/909874671739709-1.png"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1man, solo, lich, 1.2::pale grey smooth skin::, 1.5::sewn-on darker grey skin patch on right side of face, stitches along the edge of the patch::, 1.2::seam from forehead down along nose and across cheek::, 1.2::stitches around neck::, 1.5::two-tone skin::, 1.6::sewn-on dark grey arms, dark grey shoulders, stitches along the edge of shoulders::, 1.5::large y-incision, autopsy scar, stitched y-shaped scar spanning entire torso, from both shoulders to sternum and down to navel::, 1.3::glowing blue eyes::, 1.7::very short white hair::, 1.5::short spiky hair, choppy textured hair::, uneven spiky bangs, short tapered sides, thick tousled hair on top, tall, thin, expressionless, cold eyes">
@@ -130,7 +266,7 @@ confident expression, smirk, looking at viewer">
       </article>
       <article class="item" data-search="베일 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="베일 상세 보기"
-          data-title="베일" data-category="CHARACTER"
+          data-title="Noir" data-category="CHARACTER"
           data-description="《베일 / Vale》男 · ???age · 183cm"
           data-image="https://i.ibb.co/ycS7m9m5/1man-solo-dragon-boy-1-3-black-horns-multiple-horns-l-s-4137076361.png"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1man, solo, dragon boy, 1.3::black horns, multiple horns, large horns curving backward::, 1.4::small horns above ears::, 1.3::short messy grey hair, swept back, loose strands on forehead::, 1.2::yellow eyes::, 0.8::cyan outer iris::, slit pupils, thick eyebrows, 1.1::white scales on one cheek::, 1.3::folded dragon wings, cream membrane::, 1.3::long dragon tail, black and cream::, tall, muscular, 1.3::black turtleneck, short sleeves::, 1.2::black wide-leg pants::, black shoes, expressionless, hands in pockets, muted colors">
@@ -140,7 +276,7 @@ confident expression, smirk, looking at viewer">
       </article>
       <article class="item" data-search="??? character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="??? 상세 보기"
-          data-title="???" data-category="CHARACTER"
+          data-title="Noir" data-category="CHARACTER"
           data-description="《??? / ???》男 · ???age · ???cm"
           data-image="???"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, ">
@@ -152,7 +288,12 @@ confident expression, smirk, looking at viewer">
     <div class="empty" id="empty">검색 결과가 없습니다.</div>
   </div></section>
 </main>
-<footer><div class="wrap footer-inner"><span>STILLROOM / PERSONAL ARCHIVE</span><span>© <span id="year"></span></span></div></footer>
+<nav class="pager" aria-label="페이지 이동">
+  <button class="pg-btn pg-prev" id="pgPrev" type="button" aria-label="이전 페이지"><span class="pg-arrow">←</span><span class="pg-label" id="pgPrevLabel"></span></button>
+  <div class="pg-count"><b id="pgNow">01</b> / 02</div>
+  <button class="pg-btn pg-next" id="pgNext" type="button" aria-label="다음 페이지"><span class="pg-label" id="pgNextLabel"></span><span class="pg-arrow">→</span></button>
+</nav>
+<footer class="site-footer"><div class="wrap footer-inner"><span>AFTERIMAGE / PERSONAL ARCHIVE</span><span>© <span id="year"></span></span></div></footer>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
@@ -252,6 +393,137 @@ document.getElementById('copyPrompt').addEventListener('click', async () => {
     status.textContent = '복사에 실패했어요. 프롬프트 칸을 선택해 직접 복사해 주세요.';
   }
 });
+
+// 상단 포스터: 마우스를 따라다니는 반전 원 + 도형·글자가 살짝 따라 움직임
+(() => {
+  const poster = document.getElementById('poster');
+  const lens = document.getElementById('lens');
+  const layers = [...poster.querySelectorAll('.p-layer')];
+  document.getElementById('posterYear').textContent = new Date().getFullYear();
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let W = 0, H = 0, tx = 0, ty = 0, x = 0, y = 0, active = false, t0 = performance.now();
+  const size = () => { const r = poster.getBoundingClientRect(); W = r.width; H = r.height; };
+  new ResizeObserver(size).observe(poster); size();
+  x = tx = W * 0.72; y = ty = H * 0.38;
+
+  const setTarget = e => {
+    const r = poster.getBoundingClientRect();
+    tx = e.clientX - r.left; ty = e.clientY - r.top; active = true;
+  };
+  poster.addEventListener('pointermove', setTarget);
+  poster.addEventListener('pointerdown', e => { setTarget(e); poster.classList.add('press'); });
+  window.addEventListener('pointerup', () => poster.classList.remove('press'));
+  poster.addEventListener('pointerleave', () => { active = false; poster.classList.remove('press'); });
+
+  function frame(now){
+    if (!active) {               // 마우스가 없을 땐 원이 천천히 떠다님
+      const t = (now - t0) / 1000;
+      tx = W * (0.55 + Math.sin(t * 0.35) * 0.25);
+      ty = H * (0.45 + Math.sin(t * 0.5) * 0.22);
+    }
+    x += (tx - x) * 0.12; y += (ty - y) * 0.12;
+    lens.style.transform = `translate(${x}px, ${y}px)`;
+    const ox = x / W - 0.5, oy = y / H - 0.5;
+    layers.forEach(l => {
+      const d = parseFloat(l.dataset.depth);
+      l.style.transform = `translate(${ox * d * 60}px, ${oy * d * 40}px)`;
+    });
+    requestAnimationFrame(frame);
+  }
+  if (still) lens.style.transform = `translate(${x}px, ${y}px)`;
+  else requestAnimationFrame(frame);
+})();
+
+
+// 프로필 이미지가 없거나 깨지면 빈 칸 표시
+(() => {
+  const img = document.getElementById('profileImg'), box = img.parentElement;
+  const empty = () => box.classList.add('no-img');
+  if (!img.getAttribute('src')) empty();
+  img.addEventListener('error', empty);
+  img.addEventListener('load', () => box.classList.remove('no-img'));
+})();
+
+// 페이지 이동: 0 입장 / 1 프로필 / 2 아카이브
+const pages = [...document.querySelectorAll('.page')];
+const pageNames = ['ENTRANCE', 'PROFILE', 'ARCHIVE'];
+let pageNow = -1;
+function go(n, push = true){
+  n = Math.max(0, Math.min(pages.length - 1, n));
+  if (n === pageNow || go.busy) return;
+  const show = () => {
+    pages.forEach((pg, i) => pg.classList.toggle('is-active', i === n));
+    pages[0].classList.remove('leaving');
+    document.body.classList.toggle('on-entry', n === 0);
+    document.querySelectorAll('.nav button').forEach(b => b.classList.toggle('on', +b.dataset.go === n));
+    document.getElementById('pgNow').textContent = String(Math.max(n, 1)).padStart(2, '0');
+    document.getElementById('pgPrevLabel').textContent = pageNames[n - 1] || '';
+    document.getElementById('pgNextLabel').textContent = pageNames[n + 1] || '';
+    document.getElementById('pgNext').disabled = n >= pages.length - 1;
+    pageNow = n;
+    window.scrollTo(0, 0);
+    // 미리보기 창처럼 주소 변경이 막힌 곳에서도 페이지 이동은 되게
+    if (push) { try { history.pushState({ p: n }, '', n ? '#' + pages[n].dataset.name : location.pathname + location.search); } catch (e) {} }
+  };
+  if (pageNow === 0 && n > 0 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    go.busy = true; pages[0].classList.add('leaving'); setTimeout(() => { go.busy = false; show(); }, 420);
+  } else show();
+}
+document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => go(+b.dataset.go)));
+document.getElementById('pgPrev').addEventListener('click', () => go(pageNow - 1));
+document.getElementById('pgNext').addEventListener('click', () => go(pageNow + 1));
+const posterEl = document.getElementById('poster');
+posterEl.addEventListener('click', () => go(1));
+posterEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(1); } });
+window.addEventListener('popstate', e => go(e.state ? e.state.p : pageFromHash(), false));
+function pageFromHash(){ const i = pages.findIndex(pg => '#' + pg.dataset.name === location.hash); return i > 0 ? i : 0; }
+document.addEventListener('keydown', e => {
+  if (modal.classList.contains('open') || lightbox.classList.contains('open')) return;
+  if (/INPUT|TEXTAREA/.test(e.target.tagName)) return;
+  if (e.key === 'ArrowRight') go(pageNow + 1);
+  if (e.key === 'ArrowLeft') go(pageNow - 1);
+});
+document.getElementById('updated').textContent = new Date(document.lastModified).toISOString().slice(0, 10).replace(/-/g, '.');
+go(pageFromHash(), false);
+
+
+// 배경: 마우스를 느릿하게 따라오는 빛과 링 (잔상 느낌)
+(() => {
+  const glow = document.getElementById('bgGlow'), ring = document.getElementById('bgRing');
+  let tx = innerWidth * .7, ty = innerHeight * .3, gx = tx, gy = ty, rx = tx, ry = ty, moved = false, t0 = performance.now();
+  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; moved = true; });
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function tick(now){
+    if (!moved) { const t = (now - t0) / 1000; tx = innerWidth * (.5 + Math.sin(t * .12) * .3); ty = innerHeight * (.45 + Math.cos(t * .17) * .25); }
+    gx += (tx - gx) * .03; gy += (ty - gy) * .03;   // 빛은 아주 느리게
+    rx += (tx - rx) * .015; ry += (ty - ry) * .015; // 링은 더 느리게 = 잔상
+    glow.style.transform = `translate(${gx}px,${gy}px)`;
+    ring.style.transform = `translate(${rx}px,${ry}px)`;
+    requestAnimationFrame(tick);
+  }
+  glow.style.transform = `translate(${gx}px,${gy}px)`; ring.style.transform = `translate(${rx}px,${ry}px)`;
+  if (!still) requestAnimationFrame(tick);
+})();
+
+// 마우스 반짝이 이펙트 (마우스 쓰는 기기에서만)
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedia('(pointer: fine)').matches) {
+  const glyphs = ['✦', '✧', '·', '✦', '+'];
+  let last = 0;
+  document.addEventListener('mousemove', e => {
+    const t = performance.now(); if (t - last < 45) return; last = t;
+    const s = document.createElement('span');
+    s.className = 'sparkle';
+    s.textContent = glyphs[Math.random() * glyphs.length | 0];
+    s.style.left = e.clientX + 'px';
+    s.style.top = e.clientY + 'px';
+    s.style.fontSize = (8 + Math.random() * 8) + 'px';
+    s.style.setProperty('--dx', (Math.random() * 30 - 15) + 'px');
+    s.style.setProperty('--dy', (Math.random() * 20 + 10) + 'px');
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 900);
+  });
+}
 </script>
 </body>
 </html>
