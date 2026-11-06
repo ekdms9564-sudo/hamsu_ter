@@ -132,6 +132,32 @@ html{background:var(--bg)}body{background:transparent}
 @keyframes grain{0%{transform:translate(0,0)}17%{transform:translate(-3%,2%)}33%{transform:translate(2%,-4%)}50%{transform:translate(-4%,-1%)}67%{transform:translate(3%,3%)}83%{transform:translate(-1%,4%)}100%{transform:translate(0,0)}}
 body.on-entry .bg-word,body.on-entry .bg-lines{display:none}
 @media(prefers-reduced-motion:reduce){.bg-grain{animation:none}}
+
+/* 캐릭터 / 제작 캐릭터 탭 */
+.page-archive .tools{justify-content:space-between}
+.tabs{display:flex;border:1px solid var(--line)}
+.tab{background:none;border:0;padding:9px 18px;font-size:10px;letter-spacing:.14em;color:var(--muted);transition:background .2s,color .2s}
+.tab+.tab{border-left:1px solid var(--line)}
+.tab:hover{color:var(--text)}
+.tab.on{background:var(--text);color:#111}
+.tab .cnt{margin-left:7px;font:11px var(--serif);opacity:.6}
+.tab-panel{display:none}.tab-panel.on{display:block;animation:pageIn .45s cubic-bezier(.2,.8,.2,1)}
+.item-desc .pf{display:inline-block;border:1px solid var(--line);padding:0 6px;margin:2px 4px 0 0;font-size:9px;letter-spacing:.06em;color:var(--silver)}
+/* 모달: 세계관 / 플랫폼 링크 */
+.modal-world{display:none;font:italic 14px/1.5 var(--serif);color:var(--silver);margin:-2px 0 18px}
+.modal.made .modal-world{display:block}
+.platforms{display:none;margin:0 0 24px}
+.modal.made .platforms.has{display:block}
+.platforms label{display:block;font-size:10px;letter-spacing:.13em;color:var(--silver);margin-bottom:9px}
+.platform-list{display:flex;flex-wrap:wrap;gap:8px}
+.platform-link{display:inline-flex;align-items:center;gap:8px;border:1px solid #77797b;padding:9px 14px;font-size:11px;letter-spacing:.08em;transition:background .2s,color .2s,border-color .2s}
+.platform-link:hover{background:var(--silver);color:#111;border-color:var(--silver)}
+/* 이미지가 없거나 깨졌을 때 */
+.thumb.no-img img,.modal-preview.no-img img{visibility:hidden}
+.thumb.no-img::after,.modal-preview.no-img::after{content:"NO IMAGE";position:absolute;inset:0;display:grid;place-items:center;font-size:9px;letter-spacing:.2em;color:var(--muted);background:repeating-linear-gradient(45deg,transparent 0 10px,rgba(255,255,255,.025) 10px 11px)}
+/* 이미지 저장 막기: 드래그·길게 누르기 방지 */
+img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+@media(max-width:480px){.tabs{width:100%}.tab{flex:1;padding:10px 8px}}
 </style>
 </head>
 <body>
@@ -186,63 +212,100 @@ body.on-entry .bg-word,body.on-entry .bg-lines{display:none}
   </div></section>
 
   <section class="page page-archive" id="page-2" data-name="archive"><div class="wrap">
-    <div class="section-head"><div><div class="section-label">02 / CHARACTER</div><h2>Archive</h2></div><p class="section-desc"></p></div>
+    <div class="section-head"><div><div class="section-label">02 / CHARACTER</div><h2>Archive</h2></div><p class="section-desc" id="tabDesc"></p></div>
     <div class="tools">
+      <div class="tabs" role="tablist" aria-label="캐릭터 분류">
+        <button class="tab on" type="button" role="tab" aria-selected="true" data-tab="char" data-desc="세계관 없는 오리지널 캐릭터">CHARACTER<span class="cnt"></span></button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="made" data-desc="세계관과 함께 AI 채팅 플랫폼에 공개한 제작 캐릭터">CREATED<span class="cnt"></span></button>
+      </div>
       <input class="search" id="search" type="search" placeholder="캐릭터 검색..." aria-label="캐릭터 검색">
     </div>
+
+    <!-- ───────── 탭 1: 캐릭터 (오리지널) ───────── -->
+    <div class="tab-panel on" data-panel="char">
     <div class="grid" id="grid">
       <!-- 캐릭터 카드: 아래 article 하나를 통째로 복사해서 제목, 이미지, 설명, 프롬프트만 바꿔 추가하세요. 번호는 자동으로 매겨져요. -->
       <article class="item" data-search="로넌 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="로넌 상세 보기"
           data-title="로넌" data-category="CHARACTER"
           data-description="《로넌 피츠제럴드 / Ronan Fitzgerald》男 · 28age · 182cm"
-          data-image="https://i.ibb.co/9HDDQLXD/516607488244553.png"
+          data-image="https://i.imgur.com/6FWaGLT.png"
           data-prompt="*감은 눈을 원하면 마지막 black eyes를 지워주세요* 1boy, solo, male focus, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.4::red hair::, 1.4::straight hair::, 1.2::sleek hair::, 1.3::smooth hair::, 1.1::flat hair::, neat hair, 1.3::short hair::, 1.4::hair reaching the neck::, 1.3::hair above the shoulders::, 1.2::bangs::, 1.2::bangs at eye level::, 1.2::male hairstyle::, hair between eyes, hair over ears, 1.5::smiling closed eyes::, 1.5::happy closed eyes::, 1.4::crescent eyes::, 1.4::upturned closed eyes::, 1.3::arched eyelids::, 1.3::smiling eyelids::, 1.3::sharp upturned eyes::, 1.2::snake-like eyes::, no highlights, 0.9::cat mouth::, smile, black eyes">
-          <img src="https://i.ibb.co/9HDDQLXD/516607488244553.png" alt="로넌 썸네일"><span class="number"></span>
+          <img src="https://i.imgur.com/6FWaGLT.png" alt="로넌 썸네일"><span class="number"></span>
         </button>
         <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">로넌</h3><p class="item-desc">캐릭터 공유</p></div>
+      </article>
+      <article class="item" data-search="카이 character 캐릭터 공유">
+        <button class="thumb open-detail" type="button" aria-label="카이 상세 보기"
+          data-title="카이" data-category="CHARACTER"
+          data-description="《카이 볼프 / Kai Wolf》男 · 28age · 185cm"
+          data-image="https://i.imgur.com/b8FWGJj.png"
+          data-prompt="1boy, solo, male focus, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper,  black hair, 1.4::center part::, 1.3::parted bangs::, 1.4::messy hair::, 1.3::layered hair::, 1.3::choppy hair ends::, 1.2::hair reaching the neck::, 1.2::flyaway hair strands::, 1.2::hair falling over face::, hair between eyes, 1.5::hot pink eyes::, 1.3::vivid magenta eyes::, 1.4::droopy eyes::, 1.4::narrowed eyes::, 1.3::half-closed eyes::, 1.4::v-shaped eyebrows::, 1.2::angry eyebrows::,  1.3::narrowed eyes::,  1.3::smug expression::, 1.4::lightly tanned skin::, 1.2::healthy skin tone::, sharp jawline,">
+          <img src="https://i.imgur.com/b8FWGJj.png" alt="카이 썸네일"><span class="number"></span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">카이</h3><p class="item-desc">캐릭터 공유</p></div>
+      </article>
+      <article class="item" data-search="레프 character 캐릭터 공유">
+        <button class="thumb open-detail" type="button" aria-label="레프 상세 보기"
+          data-title="레프" data-category="CHARACTER"
+          data-description="《레프 소콜로프 / Лев Соколов》男 · 29age · 187cm"
+          data-image="https://i.imgur.com/nrtyp64.png"
+          data-prompt="1boy, solo, male focus, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.4::white hair::, short hair, messy hair, 1.3::hair between eyes::, long bangs, bangs over eyes, spiked hair, hair strands, undercut, 1.3::yellow eyes::, 1.2::pale yellow eyes::, bright eyes, half-closed eyes, narrow eyes, sharp eyes, mature male, sharp jawline, thin lips">
+          <img src="https://i.imgur.com/nrtyp64.png" alt="레프 썸네일"><span class="number"></span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">레프</h3><p class="item-desc">캐릭터 공유</p></div>
       </article>
       <article class="item" data-search="히가 진 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="히가 진 상세 보기"
           data-title="히가 진" data-category="CHARACTER"
           data-description="《히가 진 / 比嘉 迅》男 · 32age · 188cm"
-          data-image="https://i.ibb.co/DHGMV08k/983040082450120.png"
+          data-image="https://i.imgur.com/ZXu8upL.png"
           data-prompt="1boy, solo, male focus, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.3::tan skin::, mature male, brown eyes, 1.3::half-closed eyes::, no eyebrows, 1.2::decadent::, expressionless, 1.3::dark blue hair::, 1.4::long hair::, 1.3::straight hair::, 1.3::no bangs::, 1.5::hair fully tucked under bandana::, 1.4::hair contained under bandana::, 1.4::no hair on forehead::, 1.3::clear forehead under bandana::, 1.3::hair only emerging from behind bandana::, few loose strands behind head, 1.3::mostly loose hair::, 1.3::few thin braids::, 1.5::black bandana::, 1.5::bandana covering head::, 1.4::bandana covering forehead::, 1.4::bandana covering eyebrows::, low bandana, 1.4::bandana knot::, 1.3::bandana tails::, plain bandana, 1.5::hard shadow::, 1.3::shadow under bandana::, 1.5::tribal tattoo::, 1.4::blackwork tattoo::, 1.3::bold black tattoo::, 1.3::neck tattoo::, 1.3::chest tattoo::, 1.4::full sleeve tattoo::, both arms tattooed">
-          <img src="https://i.ibb.co/DHGMV08k/983040082450120.png" alt="히가 진 썸네일"><span class="number"></span>
+          <img src="https://i.imgur.com/ZXu8upL.png" alt="히가 진 썸네일"><span class="number"></span>
         </button>
         <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">히가 진</h3><p class="item-desc">캐릭터 공유</p></div>
+      </article>
+      <article class="item" data-search="정태웅 character 캐릭터 공유">
+        <button class="thumb open-detail" type="button" aria-label="정태웅 상세 보기"
+          data-title="정태웅" data-category="CHARACTER"
+          data-description="《정태웅 / 鄭泰雄》男 · 30age · 188cm"
+          data-image="https://i.imgur.com/qEvE7Cg.png"
+          data-prompt="1boy, solo, male focus, adult, handsome, 1.4::bara::, 1.4::bulky muscular body::, 1.3::broad shoulders::, 1.3::thick neck and arms::, 1.4::large round plump pectorals::, 1.2::adam&#x27;s apple::, 1.4::short black hair::, 1.5::grown-out buzz cut::, 1.4::short cropped hair about 3cm long::, 1.3::even length all over the head::, 1.3::visible hair texture::, 1.2::slightly bristly short strands on top::, 1.2::natural hairline visible::, -1.3::shaved head::, -1.3::bald::, -1.2::skin fade::, -1.2::bangs::, 1.4::droopy heavy-lidded half-closed eyes::, 1.4::thick straight eyebrows::, 1.5::single small scar cutting vertically through one eyebrow::, -1.4::multiple scars::, -1.3::scar on both eyebrows::, 1.2::square sharp jaw::, 1.1::tan skin::, 1.2::expressionless bored face::">
+          <img src="https://i.imgur.com/qEvE7Cg.png" alt="정태웅 썸네일"><span class="number"></span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">정태웅</h3><p class="item-desc">캐릭터 공유</p></div>
       </article>
       <article class="item" data-search="벡 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="벡 상세 보기"
           data-title="벡" data-category="CHARACTER"
-          data-description="《벡》男 · 26age · 185cm"
-          data-image="https://i.ibb.co/Fq0MkNj1/703885559150233-1.png"
+          data-description="《벡 / Beck》男 · 26age · 185cm"
+          data-image="https://i.imgur.com/3VrmaiU.png"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.3::medium warm skin tone::, 1.3::muted olive green hair::, 1.4::slightly grown-out buzz cut::, 1.3::short textured hair::, 1.3::black inner hair::,  1.6::bright vivid *yellow* sclera::, 1.5::black irises::, black pupils, half-closed eyes, narrow eyes, sharp eyes, mature male, sharp jawline, thin lips, 1.4::mischievous grin::, sly expression, delinquent-like expression, playful dangerous smile, 1.3::shark-like teeth::,  silver left eyebrow piercing, silver bridge piercing, multiple ear piercings, silver rings, 1.4::gill slits on both sides of neck::, 1.4::visible lateral neck gills::, shark-like gills, 1.3::multiple gill slits::, 1.2::scattered scars on body::, 1.3::scarred skin::, 1.4::long flat moray eel tail::, 1.4::laterally flattened tail::, 1.3::olive green tail::, 1.3::dark irregular mottled markings on tail::, 1.5::visible scars across tail::">
-          <img src="https://i.ibb.co/Fq0MkNj1/703885559150233-1.png" alt="벡 썸네일"><span class="number"></span>
+          <img src="https://i.imgur.com/3VrmaiU.png" alt="벡 썸네일"><span class="number"></span>
         </button>
         <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">벡</h3><p class="item-desc">캐릭터 공유</p></div>
+      </article>
+      <article class="item" data-search="체이스 character 캐릭터 공유">
+        <button class="thumb open-detail" type="button" aria-label="체이스 상세 보기"
+          data-title="체이스" data-category="CHARACTER"
+          data-description="《체이스 / Chase》男 · 30age · 186cm"
+          data-image="https://i.imgur.com/MGFsZTT.png"
+          data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.5::slicked-back black hair::, 1.5::black and pure white two-tone hair::, 1.4::white underlayer::, 1.4::layered wolf cut::, long nape, 1.5::narrow upturned monolid eyes::, snake-like eyes, 1.4::black irises, red pupils::, sly gaze, sharp features, black outfit, 1.3::long black pangolin tail::, 1.7::wide flat tail::, 1.5::thin flattened tail::, 1.4::flat silhouette::, 1.3::long tail lying flat on the ground::, 1.4::scales on tail only::, 1.4::overlapping black tail scales::, glossy obsidian-black tail scales, subtle gunmetal highlights, clearly defined scale patterns, tapered tail tip">
+          <img src="https://i.imgur.com/MGFsZTT.png" alt="체이스 썸네일"><span class="number"></span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">체이스</h3><p class="item-desc">캐릭터 공유</p></div>
       </article>
       <article class="item" data-search="금휘 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="금휘 상세 보기"
           data-title="금휘" data-category="CHARACTER"
           data-description="《금휘 / 金輝》男 · ???age · 203cm"
-          data-image="https://i.ibb.co/VY7RBKTN/817612197960704.png"
+          data-image="https://i.imgur.com/3st0er6.png"
           data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1man, solo, 1.3::eastern dragon boy::, 1.3::golden antler-like dragon horns, branching horns::, 1.3::long golden dragon tail, tail with flowing mane::, 1.2::golden scales on cheeks, neck and hands::, 1.2::slit pupils::, golden eyes, sharp eyes, 1.1::claws, clawed fingers::, sharp teeth, 1.4::warm golden blonde hair, honey blonde::, 1.3::very long straight hair, hair reaching below hips, loose hair::, 1.2::loosely swept-back bangs, stray strands over forehead::, 1.2::face-framing sidelocks::, slightly messy hair ends, tall, muscular,
 1.3::black and gold hanfu, wide sleeves, open chest::, 1.1::gold embroidery, cloud patterns::, gold hair ornament, jade pendant, gold earrings,
 confident expression, smirk, looking at viewer">
-          <img src="https://i.ibb.co/VY7RBKTN/817612197960704.png" alt="금휘 썸네일"><span class="number"></span>
+          <img src="https://i.imgur.com/3st0er6.png" alt="금휘 썸네일"><span class="number"></span>
         </button>
         <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">금휘</h3><p class="item-desc">캐릭터 공유</p></div>
-      </article>
-      <article class="item" data-search="체이스 character 캐릭터 공유">
-        <button class="thumb open-detail" type="button" aria-label="체이스 상세 보기"
-          data-title="체이스" data-category="CHARACTER"
-          data-description="《체이스》男 · 30age · 186cm"
-          data-image="https://i.ibb.co/208zMKgt/827895086471098.png"
-          data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, 1.5::slicked-back black hair::, 1.5::black and pure white two-tone hair::, 1.4::white underlayer::, 1.4::layered wolf cut::, long nape, 1.5::narrow upturned monolid eyes::, snake-like eyes, 1.4::black irises, red pupils::, sly gaze, sharp features, black outfit, 1.3::long black pangolin tail::, 1.7::wide flat tail::, 1.5::thin flattened tail::, 1.4::flat silhouette::, 1.3::long tail lying flat on the ground::, 1.4::scales on tail only::, 1.4::overlapping black tail scales::, glossy obsidian-black tail scales, subtle gunmetal highlights, clearly defined scale patterns, tapered tail tip">
-          <img src="https://i.ibb.co/208zMKgt/827895086471098.png" alt="체이스 썸네일"><span class="number"></span>
-        </button>
-        <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">체이스</h3><p class="item-desc">캐릭터 공유</p></div>
       </article>
       <article class="item" data-search="베일 character 캐릭터 공유">
         <button class="thumb open-detail" type="button" aria-label="베일 상세 보기"
@@ -265,6 +328,38 @@ confident expression, smirk, looking at viewer">
         <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span class="item-no"></span></div><h3 class="item-title">???</h3><p class="item-desc">캐릭터 공유</p></div>
       </article>
     </div>
+    </div>
+
+    <!-- ───────── 탭 2: 제작 캐릭터 (세계관 + 플랫폼) ───────── -->
+    <div class="tab-panel" data-panel="made">
+    <div class="grid" id="gridMade">
+      <!--
+        제작 캐릭터 카드 추가 방법: 아래 article 하나를 통째로 복사해서 button 안의 data-값만 바꾸면 돼요.
+        카드에 보이는 세계관·이름·플랫폼 표시와 번호는 자동으로 채워져요.
+          data-world   : 세계관 이름
+          data-title   : 캐릭터 이름
+          data-image   : 이미지 주소
+          data-bloom   : 블룸 캐릭터 링크   (없으면 비워두기 → 버튼 안 보임)
+          data-tingle  : 팅글 캐릭터 링크
+          data-wipe    : 위프 캐릭터 링크
+          data-prompt  : 복사할 프롬프트
+      -->
+      <article class="item made">
+        <button class="thumb open-detail" type="button"
+          data-world="세계관 이름"
+          data-title="캐릭터 이름"
+          data-image="???"
+          data-bloom="https://"
+          data-tingle=""
+          data-wipe=""
+          data-prompt="1boy, solo, adult, handsome, {{tall male}}, {{muscular male}}, {{{broad shoulders}}}, wide shoulders,  thick neck, thick arms, v-taper, ">
+          <img src="" alt=""><span class="number"></span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span class="item-world"></span><span class="item-no"></span></div><h3 class="item-title"></h3><p class="item-desc"></p></div>
+      </article>
+    </div>
+    </div>
+
     <div class="empty" id="empty">검색 결과가 없습니다.</div>
   </div></section>
 </main>
@@ -282,7 +377,9 @@ confident expression, smirk, looking at viewer">
       <button class="modal-preview" id="openLightbox" type="button" aria-label="이미지 크게 보기"><img id="detailImage" src="" alt=""><span class="zoom-hint">CLICK TO ENLARGE</span></button>
       <div class="modal-content">
         <div class="modal-meta" id="detailMeta"></div><h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-world" id="detailWorld"></p>
         <p class="modal-description" id="detailDescription"></p>
+        <div class="platforms" id="platforms"><label>PLATFORM</label><div class="platform-list" id="platformList"></div></div>
         <div class="prompt-head"><label for="promptText">PROMPT</label><button class="copy-btn" id="copyPrompt" type="button">COPY ↗</button></div>
         <textarea class="prompt" id="promptText" spellcheck="false" aria-label="프롬프트"></textarea>
         <div class="copy-status" id="copyStatus" aria-live="polite"></div>
@@ -298,27 +395,75 @@ confident expression, smirk, looking at viewer">
 </div>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-const items = [...document.querySelectorAll('.item')];
 const search = document.getElementById('search');
 const empty = document.getElementById('empty');
+const panels = [...document.querySelectorAll('.tab-panel')];
+const tabs = [...document.querySelectorAll('.tab')];
 
-// 번호 자동 매기기
-items.forEach((item, i) => {
-  const n = String(i + 1).padStart(2, '0');
-  item.querySelector('.number').textContent = n;
-  item.querySelector('.item-no').textContent = n;
-  item.querySelector('.open-detail').dataset.date = 'FILE ' + String(i + 1).padStart(3, '0');
+// 플랫폼 목록 (새 플랫폼이 생기면 여기에 ['data 이름', '표시 이름'] 추가)
+const PLATFORMS = [['bloom', '블룸'], ['tingle', '팅글'], ['wipe', '위프']];
+const isLink = v => /^https?:\/\/.+\..+/i.test((v || '').trim());
+const platformLinks = btn => PLATFORMS.filter(([k]) => isLink(btn.dataset[k])).map(([k, name]) => ({ name, url: btn.dataset[k].trim() }));
+
+// 제작 캐릭터 카드: data-값으로 카드 내용 자동 채우기
+document.querySelectorAll('.item.made').forEach(item => {
+  const btn = item.querySelector('.open-detail'), d = btn.dataset;
+  d.category = d.world || 'CREATED';
+  btn.setAttribute('aria-label', `${d.title} 상세 보기`);
+  const img = btn.querySelector('img'); img.src = d.image || ''; img.alt = `${d.title} 썸네일`;
+  item.querySelector('.item-world').textContent = d.world || '';
+  item.querySelector('.item-title').textContent = d.title || '';
+  const desc = item.querySelector('.item-desc'); desc.textContent = '';
+  const links = platformLinks(btn);
+  if (links.length) links.forEach(l => { const s = document.createElement('span'); s.className = 'pf'; s.textContent = l.name; desc.appendChild(s); });
+  else desc.textContent = '제작 캐릭터';
 });
 
+// 탭마다 번호 따로 매기기
+panels.forEach(panel => {
+  const prefix = 'FILE ';
+  [...panel.querySelectorAll('.item')].forEach((item, i) => {
+    const n = String(i + 1).padStart(2, '0');
+    item.querySelector('.number').textContent = n;
+    item.querySelector('.item-no').textContent = n;
+    item.querySelector('.open-detail').dataset.date = prefix + String(i + 1).padStart(3, '0');
+  });
+  const tab = tabs.find(t => t.dataset.tab === panel.dataset.panel);
+  if (tab) tab.querySelector('.cnt').textContent = String(panel.querySelectorAll('.item').length).padStart(2, '0');
+});
+
+// 이미지가 없거나 깨지면 빈 칸 표시
+document.querySelectorAll('.thumb img').forEach(img => {
+  const box = img.parentElement, mark = () => box.classList.add('no-img');
+  if (!img.getAttribute('src') || img.getAttribute('src') === '???') mark();
+  img.addEventListener('error', mark);
+  img.addEventListener('load', () => box.classList.remove('no-img'));
+  if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) mark();
+});
+
+function activePanel(){ return panels.find(p => p.classList.contains('on')) || panels[0]; }
 function updateItems(){
   const q = search.value.trim().toLowerCase(); let count = 0;
-  items.forEach(item => {
-    const show = !q || (item.dataset.search + ' ' + item.innerText).toLowerCase().includes(q);
+  activePanel().querySelectorAll('.item').forEach(item => {
+    const extra = (item.dataset.search || '') + ' ' + (item.querySelector('.open-detail').dataset.world || '');
+    const show = !q || (extra + ' ' + item.innerText).toLowerCase().includes(q);
     item.style.display = show ? '' : 'none'; if(show) count++;
   });
+  empty.textContent = q ? '검색 결과가 없습니다.' : '아직 등록된 캐릭터가 없습니다.';
   empty.style.display = count ? 'none' : 'block';
 }
 search.addEventListener('input', updateItems);
+
+// 탭 전환
+function setTab(name){
+  tabs.forEach(t => { const on = t.dataset.tab === name; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); });
+  panels.forEach(p => p.classList.toggle('on', p.dataset.panel === name));
+  const tab = tabs.find(t => t.dataset.tab === name);
+  document.getElementById('tabDesc').textContent = tab ? tab.dataset.desc : '';
+  updateItems();
+}
+tabs.forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
+setTab('char');
 
 const modal = document.getElementById('modal');
 const closeBtn = modal.querySelector('.modal-close');
@@ -329,11 +474,31 @@ document.querySelectorAll('.open-detail').forEach(btn => btn.addEventListener('c
   document.getElementById('detailImage').alt = btn.dataset.title;
   document.getElementById('detailMeta').textContent = `${btn.dataset.category} / ${btn.dataset.date}`;
   document.getElementById('modalTitle').textContent = btn.dataset.title;
-  document.getElementById('detailDescription').textContent = btn.dataset.description || '';
+  const descEl = document.getElementById('detailDescription');
+  descEl.textContent = btn.dataset.description || '';
+  descEl.style.display = btn.dataset.description ? '' : 'none';
+  // 제작 캐릭터면 세계관 + 플랫폼 바로가기
+  const made = !!btn.closest('.item.made');
+  modal.classList.toggle('made', made);
+  document.getElementById('detailMeta').textContent = made ? `CREATED / ${btn.dataset.date}` : `${btn.dataset.category} / ${btn.dataset.date}`;
+  document.getElementById('detailWorld').textContent = made ? `《${btn.dataset.world || ''}》` : '';
+  const list = document.getElementById('platformList'); list.innerHTML = '';
+  const links = made ? platformLinks(btn) : [];
+  links.forEach(l => {
+    const a = document.createElement('a');
+    a.className = 'platform-link'; a.href = l.url; a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = `${l.name} 바로가기 ↗`;
+    list.appendChild(a);
+  });
+  document.getElementById('platforms').classList.toggle('has', links.length > 0);
+  const preview = document.getElementById('openLightbox');
+  preview.classList.toggle('no-img', !btn.dataset.image || btn.dataset.image === '???');
   document.getElementById('promptText').value = btn.dataset.prompt || '';
   document.getElementById('copyStatus').textContent = '';
   modal.classList.add('open'); document.body.style.overflow = 'hidden'; closeBtn.focus();
 }));
+document.getElementById('detailImage').addEventListener('error', () => document.getElementById('openLightbox').classList.add('no-img'));
+document.getElementById('detailImage').addEventListener('load', () => document.getElementById('openLightbox').classList.remove('no-img'));
 function closeModal(){modal.classList.remove('open');document.body.style.overflow='';if(previousFocus)previousFocus.focus();}
 closeBtn.addEventListener('click', closeModal);
 modal.addEventListener('click', e => {if(e.target === modal) closeModal();});
@@ -485,6 +650,10 @@ go(pageFromHash(), false);
   glow.style.transform = `translate(${gx}px,${gy}px)`; ring.style.transform = `translate(${rx}px,${ry}px)`;
   if (!still) requestAnimationFrame(tick);
 })();
+
+// 이미지 우클릭·드래그 저장 막기
+document.addEventListener('contextmenu', e => { if (e.target.closest('img, .thumb, .modal-preview, .lightbox, .pwin-mark')) e.preventDefault(); });
+document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
 // 마우스 반짝이 이펙트 (마우스 쓰는 기기에서만)
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedia('(pointer: fine)').matches) {
